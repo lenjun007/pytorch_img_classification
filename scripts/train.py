@@ -7,6 +7,7 @@ from torchvision import datasets, models, transforms
 import time
 import os
 from tqdm import tqdm
+import timm
 # import pandas as pd
 from PIL import Image, ImageDraw, ImageFont
 from timm.models import create_model, safe_model_name, resume_checkpoint, load_checkpoint
@@ -203,7 +204,7 @@ def main(needTrain=True,needTest=True):
     args = parser.parse_args()
         # train
    
-    model = create_model(
+    model = timm.create_model(
         args.model,
         pretrained=args.pretrained,
         num_classes=args.num_classes,
